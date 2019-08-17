@@ -9,4 +9,11 @@ public class RestartGame : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ResetGame();
+        }
+    }
 }

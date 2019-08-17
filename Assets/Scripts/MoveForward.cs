@@ -9,6 +9,7 @@ public class MoveForward : MonoBehaviour
     [SerializeField] public float ForwardSpeed;
     Rigidbody rb;
     public float forwardInc;
+    public float forwardDec;
 
     // Start is called before the first frame update
     void Awake()
@@ -25,6 +26,15 @@ public class MoveForward : MonoBehaviour
     public void IncSpeed()
     {
         ForwardSpeed += forwardInc;
+        InitiateMovement();
+    }
+    public void DecSpeed()
+    {
+        ForwardSpeed -= forwardDec;
+        if(ForwardSpeed  < .1f)
+        {
+            ForwardSpeed = .1f;
+        }
         InitiateMovement();
     }
 

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour
 {
     public Text ScoreText;
+    public Text HighScore;
+
     private int Score;
     public int ScorePerSecond;
     public int SecondsBetweenScores;
@@ -14,6 +16,7 @@ public class ScoreBoard : MonoBehaviour
     private void Start()
     {
         AddTimerScore();
+        HighScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
     }
     public void UpdateScoreBoard(int val)
     {
@@ -23,6 +26,15 @@ public class ScoreBoard : MonoBehaviour
             ScoreText.text = "Score: " + Score;
         }
     }
+    public void CheckForHighScore()
+    {
+        if (Score > PlayerPrefs.GetInt("HighScore", 0))
+        {
+            HighScore.text = "High Score: " + Score;
+            PlayerPrefs.SetInt("HighScore", Score);
+        }
+    }
+
     void AddTimerScore()
     {
         UpdateScoreBoard(ScorePerSecond);

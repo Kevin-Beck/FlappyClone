@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ButtonGameEvent : MonoBehaviour
 {
-    public GameEvent ge;
+    public GameEvent gameEvent;
 
     public void RaiseEvent()
     {
-        ge.Raise();
+        gameEvent.Raise();
     }
 }
